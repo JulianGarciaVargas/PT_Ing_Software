@@ -21,7 +21,7 @@ public class UserDetailsServiceConfig {
     }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoderr() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }

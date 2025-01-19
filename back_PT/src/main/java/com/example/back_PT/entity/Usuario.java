@@ -12,14 +12,15 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Setter
+    @Getter
     private String nombre;
 
-    @Getter
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pais_id")
     private Pais pais;
 
-    @Getter
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "usuario_moneda",
@@ -27,4 +28,12 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "moneda_id")
     )
     private List<Moneda> monedas;
+
+    public Pais getPais() {
+        return pais;
+    }
+
+    public List<Moneda> getMonedas() {
+        return monedas;
+    }
 }

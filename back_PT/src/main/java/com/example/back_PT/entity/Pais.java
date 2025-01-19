@@ -12,12 +12,15 @@ public class Pais {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Setter
     @Getter
     private String nombre;
 
     @OneToMany(mappedBy = "pais", fetch = FetchType.EAGER)
     private List<Usuario> usuarios;
 
+    @Getter
     @OneToMany(mappedBy = "pais", fetch = FetchType.EAGER)
     private List<Gestora> gestoras;
 
@@ -29,4 +32,5 @@ public class Pais {
             inverseJoinColumns = @JoinColumn(name = "moneda_id")
     )
     private List<Moneda> monedas;
+
 }

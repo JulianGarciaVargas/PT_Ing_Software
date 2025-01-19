@@ -12,6 +12,9 @@ public class Gestora {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Setter
+    @Getter
     private String nombre;
 
     @ManyToOne(fetch = FetchType.EAGER)

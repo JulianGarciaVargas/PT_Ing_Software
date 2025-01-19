@@ -1,5 +1,6 @@
 package com.example.back_PT.controller;
 
+import com.example.back_PT.entity.Gestora;
 import com.example.back_PT.entity.Moneda;
 import com.example.back_PT.entity.Pais;
 import com.example.back_PT.service.PaisService;
@@ -27,6 +28,11 @@ public class PaisController {
     @GetMapping("/{id}/monedas")
     public List<Moneda> getMonedasByPais(@PathVariable Long id) {
         return paisService.findMonedasByPaisId(id);
+    }
+
+    @GetMapping("/{id}/gestoras")
+    public List<Gestora> getGestorasByPais(@PathVariable Long id) {
+        return paisService.findGestorasByPaisId(id);
     }
 
     @PostMapping

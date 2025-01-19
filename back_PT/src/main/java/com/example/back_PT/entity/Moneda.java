@@ -13,9 +13,17 @@ public class Moneda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Setter
     @Getter
     private String nombre;
+
+    @Setter
+    @Getter
     private String simbolo;
+
+    @Setter
+    @Getter
     private BigDecimal valorEnDolares;
 
     @ManyToMany(mappedBy = "monedas", fetch = FetchType.EAGER)
@@ -26,5 +34,4 @@ public class Moneda {
 
     @ManyToMany(mappedBy = "monedas", fetch = FetchType.EAGER)
     private List<Gestora> gestoras;
-
 }
