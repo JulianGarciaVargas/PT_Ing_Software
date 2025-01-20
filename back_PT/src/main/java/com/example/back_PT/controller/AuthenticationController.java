@@ -7,6 +7,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 
 @RestController
 public class AuthenticationController {
@@ -21,22 +23,18 @@ public class AuthenticationController {
     private UserDetailsService userDetailsService;
 
     @PostMapping("/authenticate")
-    public String createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
-        System.out.println("Authentication endpoint hit with username: " + authenticationRequest.getUsername());
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())
             );
-        } catch (Exception e) {
+        } catch (BadCredentialsException e) {
             throw new Exception("Incorrect username or password", e);
         }
 
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
-        final String jwt = jwtUtil.generateToken(userDetails.getUsername());
+        final String jwt = jwtUtil.generateToken(userDetails);
 
-        // Agrega un log para verificar que el token se está generando
-        System.out.println("Generated JWT: " + jwt);
-
-        return jwt;
+        return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
 }

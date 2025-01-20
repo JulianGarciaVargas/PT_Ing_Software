@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
 import { MyCoinsComponent } from './components/my-coins/my-coins.component';
 import { AvailableCoinsComponent } from './components/available-coins/available-coins.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginComponent, MyCoinsComponent, AvailableCoinsComponent],
+  standalone: true,
+  imports: [RouterOutlet, MyCoinsComponent, AvailableCoinsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="header">
+      <h1>Lista de Países y Criptomonedas</h1>
+      <div class="button-group">
+        <button class="transparent-button" (click)="goToInicio()">Volver</button>
+      </div>
+    </div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>País</th>
+            <th>Criptomonedas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pais of paises">
+            <td>{{ pais.id }}</td>
+            <td>{{ pais.nombre }}</td>
+            <td>
+              <table class="inner-table">
+                <thead>
+                  <tr>
+                    <th>Criptomoneda</th>
+                    <th>Simbolo</th>
+                    <th>Valor en Dólares</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let moneda of pais.monedas">
+                    <td>{{ moneda.nombre }}</td>
+                    <td>{{ moneda.simbolo }}</td>
+                    <td>{{ moneda.valorEnDolares }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="header">
+    <h1>Lista de Usuarios</h1>
+    <div class="button-group">
+      <button class="add-coin">AGREGAR USUARIO</button>
+      <button class="transparent-button" (click)="goToInicio()">Volver</button>
+    </div>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.nombre }}</td>
+          <td>
+            <button class="edit" (click)="editUser(user.id)"><i class="fas fa-edit"></i></button>
+            <button class="delete" (click)="deleteUser(user.id)"><i class="fas fa-trash-alt"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

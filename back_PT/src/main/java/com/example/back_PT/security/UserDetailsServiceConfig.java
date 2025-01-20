@@ -12,9 +12,10 @@ public class UserDetailsServiceConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
+        BCryptPasswordEncoder encoder = passwordEncoder();
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withUsername("pedro")
-                .password("{noop}pedro33") // No need to encode here, as the password encoder is defined in WebSecurityConfig
+                .password(encoder.encode("pedro33")) // Encode the password using BCrypt
                 .roles("USER")
                 .build());
         return manager;

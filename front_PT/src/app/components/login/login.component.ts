@@ -1,31 +1,21 @@
-// filepath: /c:/Users/jojgarci/Downloads/PT Ing Software (Nivel 1)/PT_Ing_Software/front_PT/src/app/components/login/login.component.ts
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication/authentication.service.ts.service';
 
 @Component({
   selector: 'app-login',
+  standalone: false,
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   username: string = '';
   password: string = '';
-  errorMessage: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private authService: AuthenticationService) {}
 
-  onSubmit() {
-    if (!this.username || !this.password) {
-      this.errorMessage = 'Todos los campos son obligatorios';
-      return;
-    }
-
-    if (this.username !== 'pedro' || this.password !== 'pedro33') {
-      this.errorMessage = 'Nombre de usuario o contraseña incorrectos';
-      return;
-    }
-
-    // Si las credenciales son correctas, redirigir a 'available-coins'
-    this.router.navigate(['/available-coins']);
+  login(): void {
+    this.authService.login(this.username, this.password).subscribe(response => {
+      this.authService.saveToken(response.jwt);
+    });
   }
 }
