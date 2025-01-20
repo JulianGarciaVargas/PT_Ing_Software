@@ -13,7 +13,7 @@
   font-size: 0.6rem;
   border-bottom: 1px solid grey;
   margin-top: 80px;
-  margin-bottom: 10px; /* Agregar margen inferior */
+  margin-bottom: 10px;
   width: 70%;
 }
 
@@ -44,14 +44,14 @@
 
 .header .button-group {
   display: flex;
-  gap: 20px; /* Aumenta el espacio entre los botones */
+  gap: 20px; 
 }
 
 .table-container {
   width: 70%;
-  overflow-x: auto; /* Permitir desplazamiento horizontal */
-  overflow-y: auto; /* Permitir desplazamiento vertical */
-  max-height: 400px; /* Ajustar la altura máxima de la tabla */
+  overflow-x: auto; 
+  overflow-y: auto; 
+  max-height: 400px; 
 }
 
 table {
@@ -72,7 +72,7 @@ th {
   background-color: #f0f0f0;
   border-bottom: 1px solid black;
   font-size: 1rem;
-  position: sticky; /* Hacer que el encabezado sea fijo */
+  position: sticky; 
   top: 0;
   z-index: 2;
 }
@@ -85,12 +85,12 @@ td {
 }
 
 th:first-child {
-  position: sticky; /* Hacer que la primera columna sea fija */
+  position: sticky; 
   left: 0;
   z-index: 1;
-  background-color: #f0f0f0; /* Fondo para la primera columna */
+  background-color: #f0f0f0; 
 }
 
 .inner-table th {
-  z-index: 0; /* Asegurar que los encabezados de las tablas internas estén por debajo del principal */
+  z-index: 0; 
 }
