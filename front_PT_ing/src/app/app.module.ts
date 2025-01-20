@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { CountryCoinComponent } from './components/country-coin/country-coin.component';
+import { UserCoinComponent } from './components/user-coin/user-coin.component';
+import { CountryManagerComponent } from './components/country-manager/country-manager.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,10 @@ import { CountryCoinComponent } from './components/country-coin/country-coin.com
     LoginComponent,
     UserListComponent,
     InicioComponent,
-    CountryCoinComponent
+    CountryCoinComponent,
+    UserCoinComponent,
+    CountryManagerComponent,
+
   ],
   imports: [
     FormsModule,

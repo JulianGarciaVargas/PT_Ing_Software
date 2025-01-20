@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="header">
+      <h1>Lista de Países y Gestoras</h1>
+      <div class="button-group">
+        <button class="transparent-button" (click)="goToInicio()">Volver</button>
+      </div>
+    </div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>País</th>
+            <th>Gestora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pais of paises">
+            <td>{{ pais.id }}</td>
+            <td>{{ pais.nombre }}</td>
+            <td>
+            <tr *ngFor="let gestora of pais.gestoras">
+            {{ gestora.nombre }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

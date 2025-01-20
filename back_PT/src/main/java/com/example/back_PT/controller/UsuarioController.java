@@ -1,5 +1,6 @@
 package com.example.back_PT.controller;
 
+import com.example.back_PT.entity.Moneda;
 import com.example.back_PT.entity.Usuario;
 import com.example.back_PT.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,10 @@ public class UsuarioController {
     @DeleteMapping("/{id}")
     public void deleteUsuario(@PathVariable Long id) {
         usuarioService.deleteById(id);
+    }
+
+    @PostMapping("/{id}/monedas")
+    public void assignCoinToUser(@PathVariable Long id, @RequestBody Moneda moneda) {
+        usuarioService.assignCoinToUser(id, moneda);
     }
 }

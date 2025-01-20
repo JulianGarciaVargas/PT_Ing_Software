@@ -1,61 +1,29 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 70%;
-  }
-  
-  .container {
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.6rem;
-      border-bottom: 1px solid grey;
-      margin-top: 40px;
-      width: 70%;
-  
-      h1 {
-        font-family: 'Open Sans', sans-serif;
-        font-weight: 700;
-      }
-  
-      .button-group {
-        display: flex;
-        gap: 20px; /* Aumenta el espacio entre los botones */
-      }
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.6rem;
+  border-bottom: 1px solid grey;
+  margin-top: 80px;
+  margin-bottom: 10px; /* Agregar margen inferior */
+  width: 70%;
+}
+
+.header h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
 
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.6rem;
-    border-bottom: 1px solid grey;
-    margin-bottom: 40px;
-    width: 70%;
-  }
-  
-  .header h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-  }
-  
-  .header .add-coin {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    background-color: #fdd835;
-    border: none;
-    border-radius: 50px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
-  }
-  
-  
+
 .transparent-button {
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
@@ -74,39 +42,55 @@
 
 }
 
+.header .button-group {
+  display: flex;
+  gap: 20px; /* Aumenta el espacio entre los botones */
+}
 
-  .header .add-coin:hover {
-    background-color: #e6c229;
-    opacity: 0.8;
-  }
-  
-  .table-container {
-    width: 70%;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0 auto;
-  }
-  
-  th, td {
-    text-align: left;
-    padding: 10px 30px;
-  }
-  
-  th {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-    background-color: #f0f0f0;
-    border-bottom: 1px solid black;
-    font-size: 1rem;
-  }
-  
-  td {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    border-bottom: 1px solid grey;
-    font-size: 0.875rem;
-  }
-  
+.table-container {
+  width: 70%;
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+  overflow-y: auto; /* Permitir desplazamiento vertical */
+  max-height: 400px; /* Ajustar la altura máxima de la tabla */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  position: relative;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 30px;
+}
+
+th {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid black;
+  font-size: 1rem;
+  position: sticky; /* Hacer que el encabezado sea fijo */
+  top: 0;
+  z-index: 2;
+}
+
+td {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  border-bottom: 1px solid grey;
+  font-size: 0.875rem;
+}
+
+th:first-child {
+  position: sticky; /* Hacer que la primera columna sea fija */
+  left: 0;
+  z-index: 1;
+  background-color: #f0f0f0; /* Fondo para la primera columna */
+}
+
+.inner-table th {
+  z-index: 0; /* Asegurar que los encabezados de las tablas internas estén por debajo del principal */
+}

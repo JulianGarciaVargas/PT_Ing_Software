@@ -18,5 +18,13 @@ export class InicioComponent {
   goToCountryCoin() {
     this.router.navigate(['/country-coin']);
   }
+
+  goToUserCoin() {
+    this.router.navigate(['/user-coin']);
+  }
+
+  goToCountryManager() {
+    this.router.navigate(['/country-manager']);
+  }
 }
 

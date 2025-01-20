@@ -20,11 +20,24 @@
           <td>{{ user.id }}</td>
           <td>{{ user.nombre }}</td>
           <td>
-            <button class="edit" (click)="editUser(user.id)"><i class="fas fa-edit"></i></button>
+            <button class="edit" (click)="editUser(user)"><i class="fas fa-edit"></i></button>
             <button class="delete" (click)="deleteUser(user.id)"><i class="fas fa-trash-alt"></i></button>
           </td>
         </tr>
       </tbody>
     </table>
+  </div>
+  <div *ngIf="isModalOpen" class="modal-backdrop" (click)="onClose()"></div>
+  <div *ngIf="isModalOpen" class="modal">
+    <h2 class="modal-title">Agregar moneda</h2>
+    <select class="coin-select" [(ngModel)]="selectedCoin">
+      <option [ngValue]="null" disabled selected>Seleccione una moneda</option>
+      <option *ngFor="let coin of coins" [value]="coin">{{ coin.nombre }}</option>
+    </select>
+    <div class="modal-actions">
+      <button class="save-button" (click)="onSave()">Guardar</button>
+      <button class="cancel-button" (click)="onClose()">Cancelar</button>
+    </div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
   </div>
 </div>
